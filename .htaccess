@@ -1,5 +1,5 @@
 
 allow from all
-### Force HTTPS
-RewriteCond %{HTTP:X-Forwarded-Proto} !https
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+ReWriteCond %{SERVER_PORT} !^81$
+RewriteRule ^/(.*) https://%{HTTP_HOST}/$1 [NC,R,L]
