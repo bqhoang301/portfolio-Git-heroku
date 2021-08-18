@@ -1,5 +1,5 @@
 
 allow from all
-
-ReWriteCond %{SERVER_PORT} !^81$
-RewriteRule ^/(.*) https://%{HTTP_HOST}/$1 [NC,R,L]
+RewriteEngine on
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule (.*) https://baoqhoang/$1 [R=301,L]
