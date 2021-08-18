@@ -1,5 +1,4 @@
 RewriteEngine On
-RewriteCond %{HTTP_HOST} ^baoqhoang\.com [NC]
-RewriteCond %{SERVER_PORT} 80
-RewriteRule ^(.*)$ https://www.baoqhoang.com/$1 [R,L]
+RewriteCond %{HTTPS} !on
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
 allow from all
