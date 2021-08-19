@@ -1,5 +1,5 @@
 
 allow from all
 RewriteEngine on
-
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteRule (.*) https://baoqhoang.com/$1 [R=301,L]
